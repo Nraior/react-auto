@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, Button } from "@mui/material";
+import { Box, Paper, Typography, Button, InputLabel } from "@mui/material";
 import Dropdown from "../components/Dropdown";
 import AvailableCars from "../components/AvailableCars";
 import { use, Suspense, useState, useEffect } from "react";
@@ -52,14 +52,23 @@ const Main = () => {
             gap: Spacings.Small,
           }}
         >
-          <Typography>Color</Typography>
+          <InputLabel sx={{ color: Colors.Dark }} id="color-label">
+            Color
+          </InputLabel>
           <Dropdown
+            labelId="color-label"
+            label="Color"
             onChange={setDropdownColor}
             placeholder="All car colors"
             dropdownOptions={["All car colors", ...colors.colors]}
           />
-          Manufacturer
+          <InputLabel sx={{ color: Colors.Dark }} id="manufacturer-label">
+            Manufacturer
+          </InputLabel>
+
           <Dropdown
+            labelId="manufacturer-label"
+            label="Manufacturer"
             onChange={setDropdownManufacturer}
             placeholder="All manufacturers"
             dropdownOptions={["All manufacturers", ...manufacturersNames]}

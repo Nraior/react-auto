@@ -18,10 +18,7 @@ const Error = () => {
       }}
     >
       <Box>
-        <img
-          src="https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg"
-          alt="autoLogo"
-        />
+        <img src="logo.svg" alt="autoLogo" />
       </Box>
       <Typography
         color={Colors.Dark}

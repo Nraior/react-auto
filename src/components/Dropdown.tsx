@@ -10,12 +10,16 @@ import { Colors, Spacings } from "../types/constants";
 interface DropdownProps {
   placeholder: string;
   dropdownOptions: string[];
+  label: string;
+  labelId: string;
   onChange: any;
 }
 
 const Dropdown = ({
   placeholder,
   dropdownOptions,
+  label,
+  labelId,
   onChange,
 }: DropdownProps) => {
   const [dropdownValue, setDropdownValue] = React.useState<string[]>([
@@ -32,6 +36,9 @@ const Dropdown = ({
 
   return (
     <Select
+      label={label}
+      labelId={labelId}
+      id={label.toLowerCase()}
       MenuProps={{
         sx: {
           "&& .Mui-selected:hover": {

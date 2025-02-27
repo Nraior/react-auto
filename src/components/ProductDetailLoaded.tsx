@@ -21,6 +21,7 @@ const ProductDetailLoaded = ({
       return JSON.parse(localStorage.getItem("favorites") || "");
     } catch (e) {
       // Some kind of local storage bug
+      return [];
     }
   });
 

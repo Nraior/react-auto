@@ -1,5 +1,5 @@
 // Layout.js
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useNavigate } from "react-router";
 import { Button, Typography, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -7,6 +7,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Colors, FooterAndHeaderSize, Spacings } from "../types/constants";
 const Layout = () => {
+  const navigate = useNavigate();
   const navbarItems = ["Purchase", "My Orders", "Sell"];
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
@@ -28,10 +29,7 @@ const Layout = () => {
         >
           <Box sx={{ flexGrow: 1, display: "block" }}>
             <Link to={"/"}>
-              <img
-                src="https://auto1-homepage.prod.mp.auto1.cloud/2.36.0-53/images/logo.svg"
-                alt="autoLogo"
-              />
+              <img id="navLogo" src="logo.svg" alt="autoLogo" />
             </Link>
           </Box>
           <Box>
@@ -43,6 +41,9 @@ const Layout = () => {
                     color: Colors.Dark,
                     textTransform: "none",
                     padding: Spacings.Small,
+                  }}
+                  onClick={() => {
+                    navigate(item);
                   }}
                 >
                   {item}

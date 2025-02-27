@@ -6,15 +6,13 @@ import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="*" element={<Error />} />
-          <Route path="/" element={<Main />} />
-          <Route path="/stock/:stock" element={<ProductDetail />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Main />} />
+        <Route path="/stock/:stock" element={<ProductDetail />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
 }
 
