@@ -20,7 +20,12 @@ const Layout = () => {
         variant="outlined"
         component="nav"
       >
-        <Toolbar>
+        <Toolbar
+          sx={{
+            padding: Spacings.Small,
+            flexDirection: { xs: "column", sm: "initial" },
+          }}
+        >
           <Box sx={{ flexGrow: 1, display: "block" }}>
             <Link to={"/"}>
               <img
