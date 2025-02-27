@@ -32,7 +32,7 @@ jest.mock("../api/cars", () => jest.fn());
 
 jest.mock("../api/carDetails", () => jest.fn());
 
-test("Main Page Test", async () => {
+test("Fetch data & Pagination Test", async () => {
   // Mock the fetchCars API to return a Promise that resolves to data
   (fetchCars as jest.Mock).mockImplementation((color, manufacturer, page) => {
     return Promise.resolve(mockFetchCars(color, manufacturer, page)); // Return a resolved promise
@@ -88,7 +88,7 @@ test("Main Page Test", async () => {
   // Test Dropdown
 });
 
-test("Filter by color and manufacturer and check applied results", async () => {
+test("Filtering Test", async () => {
   // Mock API call for fetching filtered data
   (fetchCars as jest.Mock).mockImplementation((color, manufacturer, page) => {
     return Promise.resolve(mockFetchCars(color, manufacturer, page)); // Return a resolved promise
