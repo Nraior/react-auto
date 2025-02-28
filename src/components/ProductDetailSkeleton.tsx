@@ -7,7 +7,7 @@ import {
   ProductDetailSkeletonSize,
   Spacings,
   WrapperContentSize,
-} from "../types/constants";
+} from "../utils/constants";
 
 const ProductDetailSkeleton = () => {
   return (

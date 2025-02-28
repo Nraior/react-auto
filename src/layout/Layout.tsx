@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { Colors, FooterAndHeaderSize, Spacings } from "../types/constants";
+import { Colors, FooterAndHeaderSize, Spacings } from "../utils/constants";
 const Layout = () => {
   const navigate = useNavigate();
   const navbarItems = ["Purchase", "My Orders", "Sell"];
@@ -29,7 +29,7 @@ const Layout = () => {
         >
           <Box sx={{ flexGrow: 1, display: "block" }}>
             <Link to={"/"}>
-              <img id="navLogo" src="logo.svg" alt="autoLogo" />
+              <img id="navLogo" src="/logo.svg" alt="autoLogo" />
             </Link>
           </Box>
           <Box>

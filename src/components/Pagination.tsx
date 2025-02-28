@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import PaginationButton from "./PaginationButton";
-import { FontSizes, Spacings } from "../types/constants";
+import { FontSizes, Spacings } from "../utils/constants";
 
 interface PaginationProps {
   currentPage: number;

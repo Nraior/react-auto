@@ -3,7 +3,7 @@ import ProductCartSkeleton from "./ProductCartSkeleton";
 import {
   AvailableCarsResultsTextSkeletonSize,
   Spacings,
-} from "../types/constants";
+} from "../utils/constants";
 
 const AvailableCarsSkeleton = () => {
   return (

@@ -5,7 +5,7 @@ import {
   FontSizes,
   ProductCartImageWidth,
   Spacings,
-} from "../types/constants";
+} from "../utils/constants";
 
 interface ProductCartProps {
   stockNumber: number;

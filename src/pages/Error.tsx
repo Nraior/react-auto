@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router";
-import { Colors, FontSizes, Spacings } from "../types/constants";
+import { Colors, FontSizes, Spacings } from "../utils/constants";
 
 const Error = () => {
   return (

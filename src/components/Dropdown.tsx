@@ -5,7 +5,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import React from "react";
-import { Colors, Spacings } from "../types/constants";
+import { Colors, Spacings } from "../utils/constants";
 
 interface DropdownProps {
   placeholder: string;

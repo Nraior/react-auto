@@ -6,12 +6,15 @@ import manufacturersPromise from "../api/manufacturers";
 import colorsPromise from "../api/colors";
 import AvailableCarsSkeleton from "../components/AvailableCarsSkeleton";
 import fetchCars from "../api/cars";
-import { ButtonSize, Colors, FontSizes, Spacings } from "../types/constants";
+import { ButtonSize, Colors, FontSizes, Spacings } from "../utils/constants";
+import ManufacturerInterface from "../types/ManufacturerInterface";
 
 const Main = () => {
   //carsPromise
-  const manufacturers = use<any>(manufacturersPromise);
-  const colors = use<any>(colorsPromise);
+  const manufacturers = use<{ manufacturers: ManufacturerInterface[] }>(
+    manufacturersPromise
+  );
+  const colors = use<{ colors: string[] }>(colorsPromise);
   const [dropdownColor, setDropdownColor] = useState("All car colors");
   const [dropdownManufacturer, setDropdownManufacturer] =
     useState("All manufacturers");
@@ -26,7 +29,7 @@ const Main = () => {
   }, [page]);
 
   const manufacturersNames = manufacturers.manufacturers.map(
-    (manufacturer: any) => manufacturer.name
+    (manufacturer: ManufacturerInterface) => manufacturer.name
   );
 
   return (

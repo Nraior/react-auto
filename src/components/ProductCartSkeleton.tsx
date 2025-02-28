@@ -1,5 +1,5 @@
 import { Paper, Box, Skeleton } from "@mui/material";
-import { ProductCartSkeletonSize, Spacings } from "../types/constants";
+import { ProductCartSkeletonSize, Spacings } from "../utils/constants";
 const ProductCartSkeleton = () => {
   return (
     <Paper

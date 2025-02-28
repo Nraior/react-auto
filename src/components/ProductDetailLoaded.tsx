@@ -8,14 +8,15 @@ import {
   ProductDetailMinHeight,
   Spacings,
   WrapperContentSize,
-} from "../types/constants";
+} from "../utils/constants";
+import CarDetailsInterface from "../types/CarDetailsInterface";
 interface ProductDetailLadedProps {
-  carDetailsPromise: any;
+  carDetailsPromise: Promise<CarDetailsInterface>;
 }
 const ProductDetailLoaded = ({
   carDetailsPromise,
 }: ProductDetailLadedProps) => {
-  const details = use<any>(carDetailsPromise);
+  const details = use<CarDetailsInterface>(carDetailsPromise);
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
       return JSON.parse(localStorage.getItem("favorites") || "");
@@ -39,7 +40,7 @@ const ProductDetailLoaded = ({
     stockNumber,
   } = details.car || {};
 
-  const isStockInFavorite = favorites.includes(stockNumber);
+  const isStockInFavorite = favorites.includes(stockNumber.toString());
 
   return (
     <Box
@@ -116,10 +117,10 @@ const ProductDetailLoaded = ({
 
                   if (isStockInFavorite) {
                     newFavorites = newFavorites.filter(
-                      (el) => el !== stockNumber
+                      (el) => el !== stockNumber.toString()
                     );
                   } else {
-                    newFavorites.push(stockNumber);
+                    newFavorites.push(stockNumber.toString());
                   }
                   setFavorites(newFavorites);
                   localStorage.setItem(
