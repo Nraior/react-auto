@@ -1,4 +1,3 @@
-// Layout.js
 import { Link, Outlet, useNavigate } from "react-router";
 import { Button, Typography, Paper } from "@mui/material";
 import Box from "@mui/material/Box";

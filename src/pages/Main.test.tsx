@@ -23,8 +23,6 @@ jest.mock("../api/colors", () => {
     resolve({
       colors: ["red", "blue", "green", "black", "yellow", "white", "silver"],
     });
-
-    // test
   });
 });
 

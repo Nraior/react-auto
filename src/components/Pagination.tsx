@@ -21,7 +21,6 @@ const Pagination = ({ currentPage, maxPages, setPage }: PaginationProps) => {
       <PaginationButton
         disabled={currentPage === 1}
         onClick={() => {
-          //navigate("");
           setPage(1);
         }}
       >
