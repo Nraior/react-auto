@@ -10,26 +10,37 @@ import { ButtonSize, Colors, FontSizes, Spacings } from "../utils/constants";
 import ManufacturerInterface from "../types/ManufacturerInterface";
 
 const Main = () => {
-  //carsPromise
+  const INIT_DROPDOWN_COLOR = "All car colors";
+  const INIT_DROPDOWN_MANUFACTURER = "All manufacturers";
   const manufacturers = use<{ manufacturers: ManufacturerInterface[] }>(
-    manufacturersPromise
+    manufacturersPromise,
   );
   const colors = use<{ colors: string[] }>(colorsPromise);
-  const [dropdownColor, setDropdownColor] = useState("All car colors");
-  const [dropdownManufacturer, setDropdownManufacturer] =
-    useState("All manufacturers");
+  const [dropdownColor, setDropdownColor] = useState(INIT_DROPDOWN_COLOR);
+  const [dropdownManufacturer, setDropdownManufacturer] = useState(
+    INIT_DROPDOWN_MANUFACTURER,
+  );
+
+  const [dropdownColorApplied, setDropdownColorApplied] =
+    useState(INIT_DROPDOWN_COLOR);
+
+  const [dropdownManufacturerApplied, setDropdownManufacturerApplied] =
+    useState(INIT_DROPDOWN_MANUFACTURER);
+
   const [page, setPage] = useState(1);
 
-  const [fetchCarsPromise, setFetchCarsPromise] = useState(() =>
-    fetchCars(dropdownColor, dropdownManufacturer, page)
+  const [fetchCarsPromise, setFetchCarsPromise] = useState<Promise<any> | null>(
+    null,
   );
 
   useEffect(() => {
-    setFetchCarsPromise(fetchCars(dropdownColor, dropdownManufacturer, page));
-  }, [page]);
+    setFetchCarsPromise(
+      fetchCars(dropdownColorApplied, dropdownManufacturerApplied, page),
+    );
+  }, [page, dropdownColorApplied, dropdownManufacturerApplied]);
 
   const manufacturersNames = manufacturers.manufacturers.map(
-    (manufacturer: ManufacturerInterface) => manufacturer.name
+    (manufacturer: ManufacturerInterface) => manufacturer.name,
   );
 
   return (
@@ -97,13 +108,8 @@ const Main = () => {
               }}
               onClick={() => {
                 setPage(1);
-                const updatedFetchCarsPromise = fetchCars(
-                  dropdownColor,
-                  dropdownManufacturer,
-                  1
-                );
-
-                setFetchCarsPromise(updatedFetchCarsPromise);
+                setDropdownManufacturerApplied(dropdownManufacturer);
+                setDropdownColorApplied(dropdownColor);
               }}
             >
               Filter
@@ -121,11 +127,13 @@ const Main = () => {
         </Typography>
 
         <Suspense fallback={<AvailableCarsSkeleton />}>
-          <AvailableCars
-            page={page}
-            setPage={setPage}
-            promise={fetchCarsPromise}
-          />
+          {fetchCarsPromise && (
+            <AvailableCars
+              page={page}
+              setPage={setPage}
+              promise={fetchCarsPromise}
+            />
+          )}
         </Suspense>
       </Box>
     </Box>
