@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, BrowserRouter, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import Error from "./pages/Error";
 import Layout from "./layout/Layout";
 import Main from "./pages/Main";

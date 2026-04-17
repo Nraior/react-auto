@@ -60,7 +60,7 @@ const ProductDetailLoaded = ({
         minHeight={ProductDetailMinHeight}
       >
         <Box>
-          <img src={pictureUrl} alt="car picture" />
+          <img src={pictureUrl} alt="Car" />
         </Box>
       </Box>
 
@@ -117,7 +117,7 @@ const ProductDetailLoaded = ({
 
                   if (isStockInFavorite) {
                     newFavorites = newFavorites.filter(
-                      (el) => el !== stockNumber.toString()
+                      (el) => el !== stockNumber.toString(),
                     );
                   } else {
                     newFavorites.push(stockNumber.toString());
@@ -125,7 +125,7 @@ const ProductDetailLoaded = ({
                   setFavorites(newFavorites);
                   localStorage.setItem(
                     `favorites`,
-                    JSON.stringify(newFavorites)
+                    JSON.stringify(newFavorites),
                   );
                 }}
                 disableRipple
