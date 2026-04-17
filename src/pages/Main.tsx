@@ -33,11 +33,11 @@ const Main = () => {
     null,
   );
 
-  useEffect(() => {
-    setFetchCarsPromise(
-      fetchCars(dropdownColorApplied, dropdownManufacturerApplied, page),
-    );
-  }, [page, dropdownColorApplied, dropdownManufacturerApplied]);
+  useEffect(() => {}, [
+    page,
+    dropdownColorApplied,
+    dropdownManufacturerApplied,
+  ]);
 
   const manufacturersNames = manufacturers.manufacturers.map(
     (manufacturer: ManufacturerInterface) => manufacturer.name,
